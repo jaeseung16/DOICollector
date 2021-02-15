@@ -1,9 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="true" userDefinedModelVersionIdentifier="">
-    <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
-        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D74" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="Author" representedClassName="Author" syncable="YES" codeGenerationType="class">
+        <attribute name="instituion" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="citation" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Citation" inverseName="authors" inverseEntity="Citation"/>
+    </entity>
+    <entity name="Citation" representedClassName="Citation" syncable="YES" codeGenerationType="class">
+        <attribute name="created" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="firstPage" optional="YES" attributeType="String"/>
+        <attribute name="issue" optional="YES" attributeType="String"/>
+        <attribute name="journal" optional="YES" attributeType="String"/>
+        <attribute name="publisher" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="volume" optional="YES" attributeType="String"/>
+        <relationship name="authors" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Author" inverseName="citation" inverseEntity="Author"/>
+        <relationship name="doi" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="DOI" inverseName="citation" inverseEntity="DOI"/>
+    </entity>
+    <entity name="DOI" representedClassName="DOI" syncable="YES" codeGenerationType="class">
+        <attribute name="prefix" optional="YES" attributeType="String"/>
+        <attribute name="suffix" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="citation" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Citation" inverseName="doi" inverseEntity="Citation"/>
     </entity>
     <elements>
-        <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
+        <element name="DOI" positionX="-63" positionY="-18" width="128" height="89"/>
+        <element name="Citation" positionX="-63" positionY="9" width="128" height="179"/>
+        <element name="Author" positionX="-54" positionY="45" width="128" height="74"/>
     </elements>
 </model>

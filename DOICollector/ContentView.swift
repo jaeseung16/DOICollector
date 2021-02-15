@@ -12,28 +12,35 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
 
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
+        sortDescriptors: [NSSortDescriptor(keyPath: \Citation.date, ascending: true)],
         animation: .default)
-    private var items: FetchedResults<Item>
+    private var items: FetchedResults<Citation>
 
+    @State private var showAddDOIView = false
+    
     var body: some View {
         List {
             ForEach(items) { item in
-                Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+                Text("Item at \(item.created!, formatter: itemFormatter)")
             }
             .onDelete(perform: deleteItems)
         }
         .toolbar {
-            Button(action: addItem) {
+            Button(action: { self.showAddDOIView = true }) {
                 Label("Add Item", systemImage: "plus")
             }
+            .sheet(isPresented: $showAddDOIView, content: {
+                AddDOIView(presenting: $showAddDOIView)
+                    .frame(width: 500, height: 500, alignment: .center)
+            })
         }
     }
 
     private func addItem() {
+        /*
         withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
+            let newItem = Citation(context: viewContext)
+            newItem.created = Date()
 
             do {
                 try viewContext.save()
@@ -44,6 +51,7 @@ struct ContentView: View {
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
         }
+        */
     }
 
     private func deleteItems(offsets: IndexSet) {

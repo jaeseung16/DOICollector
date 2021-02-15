@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,11 @@
 		90356E2525DAB67F005E450A /* DOICollector.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 90356E2325DAB67F005E450A /* DOICollector.xcdatamodeld */; };
 		90356E3125DAB680005E450A /* DOICollectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90356E3025DAB680005E450A /* DOICollectorTests.swift */; };
 		90356E3C25DAB680005E450A /* DOICollectorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90356E3B25DAB680005E450A /* DOICollectorUITests.swift */; };
+		90356E4E25DAB7AA005E450A /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90356E4D25DAB7AA005E450A /* CloudKit.framework */; };
+		90356E5625DAC6F0005E450A /* AddDOIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90356E5525DAC6F0005E450A /* AddDOIView.swift */; };
+		90356E5C25DAC921005E450A /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 90356E5B25DAC921005E450A /* SwiftSoup */; };
+		90427B6925DAEC6600378DB4 /* ShowDOIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90427B6825DAEC6600378DB4 /* ShowDOIView.swift */; };
+		90427B6E25DAFE1D00378DB4 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90427B6D25DAFE1D00378DB4 /* WebView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +55,10 @@
 		90356E3725DAB680005E450A /* DOICollectorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DOICollectorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		90356E3B25DAB680005E450A /* DOICollectorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DOICollectorUITests.swift; sourceTree = "<group>"; };
 		90356E3D25DAB680005E450A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		90356E4D25DAB7AA005E450A /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		90356E5525DAC6F0005E450A /* AddDOIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDOIView.swift; sourceTree = "<group>"; };
+		90427B6825DAEC6600378DB4 /* ShowDOIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDOIView.swift; sourceTree = "<group>"; };
+		90427B6D25DAFE1D00378DB4 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +66,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90356E4E25DAB7AA005E450A /* CloudKit.framework in Frameworks */,
+				90356E5C25DAC921005E450A /* SwiftSoup in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +95,7 @@
 				90356E2F25DAB680005E450A /* DOICollectorTests */,
 				90356E3A25DAB680005E450A /* DOICollectorUITests */,
 				90356E1625DAB67F005E450A /* Products */,
+				90356E4C25DAB7AA005E450A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,6 +120,9 @@
 				90356E2725DAB67F005E450A /* DOICollector.entitlements */,
 				90356E2325DAB67F005E450A /* DOICollector.xcdatamodeld */,
 				90356E1E25DAB67F005E450A /* Preview Content */,
+				90356E5525DAC6F0005E450A /* AddDOIView.swift */,
+				90427B6825DAEC6600378DB4 /* ShowDOIView.swift */,
+				90427B6D25DAFE1D00378DB4 /* WebView.swift */,
 			);
 			path = DOICollector;
 			sourceTree = "<group>";
@@ -138,6 +153,14 @@
 			path = DOICollectorUITests;
 			sourceTree = "<group>";
 		};
+		90356E4C25DAB7AA005E450A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				90356E4D25DAB7AA005E450A /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -154,6 +177,9 @@
 			dependencies = (
 			);
 			name = DOICollector;
+			packageProductDependencies = (
+				90356E5B25DAC921005E450A /* SwiftSoup */,
+			);
 			productName = DOICollector;
 			productReference = 90356E1525DAB67F005E450A /* DOICollector.app */;
 			productType = "com.apple.product-type.application";
@@ -225,6 +251,9 @@
 				Base,
 			);
 			mainGroup = 90356E0C25DAB67F005E450A;
+			packageReferences = (
+				90356E5A25DAC921005E450A /* XCRemoteSwiftPackageReference "SwiftSoup" */,
+			);
 			productRefGroup = 90356E1625DAB67F005E450A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -268,9 +297,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				90356E2525DAB67F005E450A /* DOICollector.xcdatamodeld in Sources */,
+				90356E5625DAC6F0005E450A /* AddDOIView.swift in Sources */,
+				90427B6925DAEC6600378DB4 /* ShowDOIView.swift in Sources */,
 				90356E2225DAB67F005E450A /* Persistence.swift in Sources */,
 				90356E1B25DAB67F005E450A /* ContentView.swift in Sources */,
 				90356E1925DAB67F005E450A /* DOICollectorApp.swift in Sources */,
+				90427B6E25DAFE1D00378DB4 /* WebView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -593,6 +625,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		90356E5A25DAC921005E450A /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scinfu/SwiftSoup";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.3.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		90356E5B25DAC921005E450A /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 90356E5A25DAC921005E450A /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			productName = SwiftSoup;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		90356E2325DAB67F005E450A /* DOICollector.xcdatamodeld */ = {
